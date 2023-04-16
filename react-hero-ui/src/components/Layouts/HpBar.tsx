@@ -1,10 +1,7 @@
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
-import MobileStepper from '@mui/material/MobileStepper';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import Hero from '../../models/Hero';
-import store from '../../reducers/store';
 
 const HpBar: React.FC<{
     hero: Hero;

@@ -4,9 +4,10 @@ import Hero from "../models/Hero"
 
 export const heroUnderAttack = createAction<number>('hero/underAttack')
 export const healIsHealing = createAction<number>('hero/heal')
+export const setHero = createAction<Hero>('hero/newHero')
 
 const initialHeroState = {
-  name: 'HeroFromReduce',
+  name: 'Default Redux Hero Name',
   hp: 12,
   maxHp: 24,
 } as Hero
@@ -22,6 +23,9 @@ const heroReducer = createReducer(initialHeroState, (builder) => {
       const newHero = { ...heroState };
       newHero.hp = newHero.hp + action.payload;
       return newHero;
+    })
+    .addCase(setHero, (heroState, action) => {
+      return {...action.payload};
     })
 }) as ReducerWithInitialState<Hero>
 

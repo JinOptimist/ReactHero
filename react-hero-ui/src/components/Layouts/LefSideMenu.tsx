@@ -1,6 +1,5 @@
 import { AddReaction, Home, Settings } from '@mui/icons-material';
 import Box from '@mui/material/Box';
-import React from 'react';
 function LefSideMenu() {
     return (
         <>

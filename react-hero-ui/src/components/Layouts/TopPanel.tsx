@@ -1,18 +1,10 @@
 import Box from '@mui/material/Box';
-import React, { useState } from 'react';
+import React from 'react';
 import { useAppSelector } from '../../hooks';
-import Hero from '../../models/Hero';
-import store, { RootState } from '../../reducers/store';
 import HpBar from './HpBar';
 
 const TopPanel: React.FC<{}> = () => {
-    const [hero, setHero] = useState(store.getState().currentHero)
-
-    store.subscribe(() => {
-        //setHero(useAppSelector(x => x.currentHero));
-        setHero(store.getState().currentHero);
-    })
-
+    const hero = useAppSelector(x => x.currentHero);
     return (
         <>
             <Box sx={{
@@ -21,7 +13,7 @@ const TopPanel: React.FC<{}> = () => {
                 justifyContent: 'space-between'
             }}>
                 <Box>LOGO</Box>
-                <Box>{hero.name} {hero.hp}</Box>
+                <Box>{hero.name}</Box>
                 <HpBar hero={hero}></HpBar>
             </Box>
         </>
